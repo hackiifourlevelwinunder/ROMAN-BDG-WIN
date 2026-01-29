@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>THE MAXX PROFIT | BDG WIN</title>
 
-  <!-- AUTO REDIRECT AFTER 3 SECONDS -->
-  <meta http-equiv="refresh" content="3;url=https://t.me/+jlNc_UFRTnU2MTBl">
-
   <style>
     * {
       margin: 0;
@@ -68,7 +65,7 @@
 
     .features {
       text-align: left;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       font-size: 14px;
     }
 
@@ -97,15 +94,12 @@
       box-shadow: 0 0 22px rgba(255, 215, 0, 0.55);
     }
 
-    .join-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 36px rgba(255, 215, 0, 0.85);
-    }
-
     .timer {
       margin-top: 16px;
-      font-size: 13px;
-      opacity: 0.7;
+      font-size: 15px;
+      color: #ffd700;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .footer {
@@ -119,7 +113,6 @@
 
   <div class="card">
 
-    <!-- LOGO -->
     <img src="logo.png" alt="BDG WIN Logo" class="logo"/>
 
     <h1>THE MAXX PROFIT</h1>
@@ -136,20 +129,45 @@
       <li>Safe & Trusted Community</li>
     </ul>
 
-    <!-- JOIN BUTTON -->
     <a href="https://t.me/+jlNc_UFRTnU2MTBl" target="_blank" class="join-btn">
       🚀 JOIN TELEGRAM NOW
     </a>
 
-    <div class="timer">
-      ⏳ Redirecting to Telegram in 3 seconds...
+    <!-- TIMER -->
+    <div class="timer" id="timer">
+      ⏳ 00:00:15
     </div>
 
     <div class="footer">
-      © 2026 THE MAXX PROFIT • All Rights Reserved
+      © 2026 THE MAXX PROFIT
     </div>
 
   </div>
+
+  <script>
+    let totalSeconds = 15;
+    const redirectAt = 5; // redirect when 5 seconds left
+    const telegramLink = "https://t.me/+jlNc_UFRTnU2MTBl";
+
+    const timerEl = document.getElementById("timer");
+
+    const interval = setInterval(() => {
+      let minutes = Math.floor(totalSeconds / 60);
+      let seconds = totalSeconds % 60;
+
+      timerEl.innerHTML = `⏳ 00:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+      if (totalSeconds === redirectAt) {
+        window.location.href = telegramLink;
+      }
+
+      if (totalSeconds <= 0) {
+        clearInterval(interval);
+      }
+
+      totalSeconds--;
+    }, 1000);
+  </script>
 
 </body>
 </html>

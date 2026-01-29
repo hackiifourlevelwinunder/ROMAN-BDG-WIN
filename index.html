@@ -51,31 +51,47 @@
 
     h2 {
       font-size: 16px;
-      font-weight: normal;
       opacity: 0.85;
     }
 
-    /* 🔥 BIG TIMER JUST BELOW POWERED BY */
+    /* BIG COUNTDOWN */
     .big-timer {
-      margin: 18px 0 28px 0;
+      margin: 16px 0 22px 0;
       font-size: 32px;
       font-weight: bold;
       color: #ffd700;
       letter-spacing: 3px;
-      padding: 16px 0;
+      padding: 14px 0;
       border-radius: 14px;
       background: rgba(255, 215, 0, 0.18);
-      box-shadow: 0 0 35px rgba(255, 215, 0, 0.85);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.9);
       animation: pulse 1.2s infinite alternate;
     }
 
     @keyframes pulse {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.06);
-      }
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+
+    /* JOIN BUTTON – TIMER KE JUST NICHE */
+    .join-btn {
+      margin-bottom: 28px;
+      display: inline-block;
+      width: 100%;
+      padding: 18px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(135deg, #ffd700, #ffb700);
+      border-radius: 60px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
+      transition: 0.25s ease;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.07);
     }
 
     p {
@@ -87,7 +103,7 @@
 
     .features {
       text-align: left;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       font-size: 16px;
     }
 
@@ -100,25 +116,6 @@
       content: "✔ ";
       color: gold;
       font-weight: bold;
-    }
-
-    .join-btn {
-      display: inline-block;
-      width: 100%;
-      padding: 18px 0;
-      font-size: 20px;
-      font-weight: bold;
-      color: #000;
-      background: linear-gradient(135deg, #ffd700, #ffb700);
-      border-radius: 60px;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: 0.25s ease;
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.9);
-    }
-
-    .join-btn:hover {
-      transform: scale(1.07);
     }
 
     .footer {
@@ -137,10 +134,13 @@
     <h1>THE MAXX PROFIT</h1>
     <h2>Powered by BDG WIN</h2>
 
-    <!-- ✅ ONLY ONE TIMER (HERE) -->
-    <div class="big-timer" id="timer">
-      ⏳ 00:00:15
-    </div>
+    <!-- COUNTDOWN -->
+    <div class="big-timer" id="timer">⏳ 00:00:15</div>
+
+    <!-- ✅ BUTTON EXACTLY WHERE YOU CIRCLED -->
+    <a href="https://t.me/+jlNc_UFRTnU2MTBl" class="join-btn">
+      🚀 JOIN TELEGRAM NOW
+    </a>
 
     <p>
       Official Telegram Channel<br>
@@ -152,10 +152,6 @@
       <li>Daily Winning Strategies</li>
       <li>Safe & Trusted Community</li>
     </ul>
-
-    <a href="https://t.me/+jlNc_UFRTnU2MTBl" target="_blank" class="join-btn">
-      🚀 JOIN TELEGRAM NOW
-    </a>
 
     <div class="footer">
       © 2026 THE MAXX PROFIT
@@ -170,21 +166,17 @@
     const timerEl = document.getElementById("timer");
 
     const interval = setInterval(() => {
-      let minutes = Math.floor(totalSeconds / 60);
-      let seconds = totalSeconds % 60;
+      let m = Math.floor(totalSeconds / 60);
+      let s = totalSeconds % 60;
 
-      timerEl.innerHTML =
-        `⏳ 00:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+      timerEl.innerHTML = `⏳ 00:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 
       if (totalSeconds === redirectAt) {
         window.location.href = telegramLink;
       }
 
-      if (totalSeconds <= 0) {
-        clearInterval(interval);
-      }
-
       totalSeconds--;
+      if (totalSeconds < 0) clearInterval(interval);
     }, 1000);
   </script>
 

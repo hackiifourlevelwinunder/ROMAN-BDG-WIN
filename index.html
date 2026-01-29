@@ -26,52 +26,76 @@
 
     .card {
       background: rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      border-radius: 18px;
-      padding: 32px 26px;
-      max-width: 390px;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 22px;
+      padding: 36px 28px;
+      max-width: 420px;
       width: 100%;
-      box-shadow: 0 0 45px rgba(255, 215, 0, 0.18);
+      box-shadow: 0 0 55px rgba(255, 215, 0, 0.2);
     }
 
     .logo {
-      width: 200px;
-      max-width: 80%;
-      margin-bottom: 20px;
-      border-radius: 14px;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+      width: 220px;
+      max-width: 85%;
+      margin-bottom: 22px;
+      border-radius: 16px;
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.45);
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 30px;
       color: gold;
       margin-bottom: 6px;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
     h2 {
       font-size: 16px;
       font-weight: normal;
       opacity: 0.85;
-      margin-bottom: 18px;
+    }
+
+    /* BIG TIMER */
+    .big-timer {
+      margin: 16px 0 28px 0;
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffd700;
+      letter-spacing: 3px;
+      padding: 14px 0;
+      border-radius: 14px;
+      background: rgba(255, 215, 0, 0.15);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.75);
+      animation: pulse 1.2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      }
+      to {
+        transform: scale(1.05);
+        box-shadow: 0 0 45px rgba(255, 215, 0, 0.95);
+      }
     }
 
     p {
-      font-size: 15px;
-      opacity: 0.9;
-      margin-bottom: 22px;
-      line-height: 1.6;
+      font-size: 17px;
+      opacity: 0.95;
+      margin-bottom: 26px;
+      line-height: 1.8;
     }
 
     .features {
       text-align: left;
-      margin-bottom: 22px;
-      font-size: 14px;
+      margin-bottom: 30px;
+      font-size: 16px;
     }
 
     .features li {
       list-style: none;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .features li::before {
@@ -83,29 +107,27 @@
     .join-btn {
       display: inline-block;
       width: 100%;
-      padding: 14px 0;
-      font-size: 18px;
+      padding: 18px 0;
+      font-size: 20px;
       font-weight: bold;
       color: #000;
       background: linear-gradient(135deg, #ffd700, #ffb700);
-      border-radius: 50px;
+      border-radius: 60px;
       text-decoration: none;
+      letter-spacing: 1px;
       transition: 0.25s ease;
-      box-shadow: 0 0 22px rgba(255, 215, 0, 0.55);
+      box-shadow: 0 0 35px rgba(255, 215, 0, 0.75);
     }
 
-    .timer {
-      margin-top: 16px;
-      font-size: 15px;
-      color: #ffd700;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .join-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 55px rgba(255, 215, 0, 0.95);
     }
 
     .footer {
-      margin-top: 14px;
+      margin-top: 18px;
       font-size: 12px;
-      opacity: 0.55;
+      opacity: 0.6;
     }
   </style>
 </head>
@@ -117,6 +139,11 @@
 
     <h1>THE MAXX PROFIT</h1>
     <h2>Powered by BDG WIN</h2>
+
+    <!-- BIG TIMER JUST BELOW POWERED BY -->
+    <div class="big-timer" id="timer">
+      ⏳ 00:00:15
+    </div>
 
     <p>
       Official Telegram Channel<br>
@@ -133,11 +160,6 @@
       🚀 JOIN TELEGRAM NOW
     </a>
 
-    <!-- TIMER -->
-    <div class="timer" id="timer">
-      ⏳ 00:00:15
-    </div>
-
     <div class="footer">
       © 2026 THE MAXX PROFIT
     </div>
@@ -146,16 +168,16 @@
 
   <script>
     let totalSeconds = 15;
-    const redirectAt = 5; // redirect when 5 seconds left
+    const redirectAt = 5;
     const telegramLink = "https://t.me/+jlNc_UFRTnU2MTBl";
-
     const timerEl = document.getElementById("timer");
 
     const interval = setInterval(() => {
       let minutes = Math.floor(totalSeconds / 60);
       let seconds = totalSeconds % 60;
 
-      timerEl.innerHTML = `⏳ 00:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+      timerEl.innerHTML =
+        `⏳ 00:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
 
       if (totalSeconds === redirectAt) {
         window.location.href = telegramLink;

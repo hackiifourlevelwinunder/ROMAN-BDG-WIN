@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE MAXX PROFIT | BDG WIN</title>
 
-  <!-- 🔥 META (FACEBOOK) PIXEL CODE -->
+  <!-- 🔥 META PIXEL (NEW ID) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,12 +15,12 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '557390213772711');
+  fbq('init', '1031039635796271');
   fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=557390213772711&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=1031039635796271&ev=PageView&noscript=1"/>
   </noscript>
   <!-- 🔥 END META PIXEL -->
 
@@ -72,7 +72,6 @@
       opacity:.85;
     }
 
-    /* COUNTDOWN */
     .timer{
       margin:18px 0 22px;
       font-size:32px;
@@ -91,7 +90,6 @@
       to{transform:scale(1.06)}
     }
 
-    /* JOIN BUTTON — CENTER */
     .join-btn{
       display:block;
       width:100%;
@@ -152,10 +150,8 @@
     <h1>THE MAXX PROFIT</h1>
     <h2>Powered by BDG WIN</h2>
 
-    <!-- COUNTDOWN -->
     <div class="timer" id="timer">⏳ 00:00:15</div>
 
-    <!-- JOIN BUTTON (CENTER) -->
     <a href="https://t.me/+jlNc_UFRTnU2MTBl" class="join-btn">
       🚀 JOIN TELEGRAM NOW
     </a>
@@ -187,7 +183,8 @@
       let m = Math.floor(totalSeconds / 60);
       let s = totalSeconds % 60;
 
-      timerEl.innerHTML = `⏳ 00:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      timerEl.innerHTML =
+        `⏳ 00:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 
       if (totalSeconds === redirectAt) {
         window.location.href = telegramLink;
